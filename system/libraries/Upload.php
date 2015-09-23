@@ -695,6 +695,22 @@ class CI_Upload {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Set Maximum File Size
+	 *
+	 * An internal alias to set_max_filesize() to help with configuration
+	 * as initialize() will look for a set_<property_name>() method ...
+	 *
+	 * @param	int	$n
+	 * @return	CI_Upload
+	 */
+	protected function set_max_size($n)
+	{
+		return $this->set_max_filesize($n);
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Set Maximum File Name Length
 	 *
 	 * @param	int	$n
@@ -1007,7 +1023,7 @@ class CI_Upload {
 
 		if (count($x) === 1)
 		{
-		    return '';
+			return '';
 		}
 
 		$ext = ($this->file_ext_tolower) ? strtolower(end($x)) : end($x);
